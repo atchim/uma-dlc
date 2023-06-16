@@ -1,0 +1,1 @@
+{1 :atchim/sopa.nvim :event :UIEnter :opts (fn [_ opts] opts) :config true}
