@@ -1,3 +1,4 @@
 { 1 :rcarriga/nvim-notify
-  :event :UIEnter
-  :opts {:stages :fade}}
+  :event :VeryLazy
+  :opts {:stages :fade}
+  :dependencies :atchim/sopa.nvim}

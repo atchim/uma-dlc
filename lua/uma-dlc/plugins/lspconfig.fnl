@@ -1,7 +1,7 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
-(fn config! []
-  (fn on_attach! [client bufnr]
+(fn config []
+  (fn on_attach [client bufnr]
     (let
       [ api vim.api
         group
@@ -104,18 +104,14 @@
       :setup_handlers
       { 1
         (fn [server]
-          (modcall
-            :lspconfig
-            server
-            :setup
-            {: capabilities :on_attach on_attach!}))
+          (modcall :lspconfig server :setup {: capabilities : on_attach}))
         :fennel_language_server
         #(modcall
           :lspconfig
           :fennel_language_server
           :setup
           { : capabilities
-            :on_attach on_attach!
+            : on_attach
             :settings
             { :fennel
               { :diagnostics {:globals [:vim]}
@@ -126,7 +122,7 @@
           :lua_ls
           :setup
           { : capabilities
-            :on_attach on_attach!
+            : on_attach
             :settings
             { :Lua
               { :diagnostics {:globals [:vim]}
@@ -137,7 +133,7 @@
 [ {1 :j-hui/fidget.nvim :event :LspAttach :opts {:text {:spinner :dots}}}
   { 1 :neovim/nvim-lspconfig
     :event :BufRead
-    :config config!
+    : config
     :dependencies
     { 1 :williamboman/mason-lspconfig.nvim
       :config true

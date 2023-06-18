@@ -34,7 +34,7 @@
       :swap_next {:<C-N> "@swappable"}
       :swap_previous {:<C-P> "@swappable"}}}})
 
-(fn config! [_ opts]
+(fn config [_ opts]
   (modcall :nvim-treesitter.configs :setup opts)
   (let [o vim.opt]
     (set o.foldexpr "nvim_treesitter#foldexpr()")
@@ -56,7 +56,7 @@
       :TSEditQueryUserAfter]
     :event :BufRead
     : opts
-    :config config!}
+    : config}
   { 1 :nvim-treesitter/nvim-treesitter-textobjects
     :event :BufRead
     :dependencies :nvim-treesitter}

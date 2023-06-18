@@ -1,4 +1,4 @@
-(fn config! [_ opts]
+(fn config [_ opts]
   (local npairs (require :nvim-autopairs))
   (npairs.setup opts)
 
@@ -16,7 +16,8 @@
       (-> (npairs.get_rule pairy) (tset :not_filetypes lispies)))
     (each [i pairy (ipairs pairies)]
       (npairs.add_rule
-        (-> (rule pairy (. pairies* i) lispies)
+        (->
+          (rule pairy (. pairies* i) lispies)
           (: :with_pair (cond.not_after_regex :%w)))))))
 
 { 1 :windwp/nvim-autopairs
@@ -32,5 +33,5 @@
       :check_comma true
       :highlight :Search
       :highlight_grey :Comment}}
-  :config config!
+  : config
   :dependencies :hrsh7th/nvim-cmp}

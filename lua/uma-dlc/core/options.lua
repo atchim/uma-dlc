@@ -1,4 +1,4 @@
-local function setup_21()
+local function setup()
   local o = vim.opt
   o.ignorecase = true
   o.smartcase = true
@@ -36,4 +36,4 @@ local function setup_21()
   o.undofile = true
   return nil
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

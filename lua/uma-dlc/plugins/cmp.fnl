@@ -1,6 +1,6 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
-(fn config! []
+(fn config []
   (local cmp (require :cmp))
   (local luasnip (require :luasnip))
   (local icons
@@ -86,7 +86,7 @@
   {1 :hrsh7th/cmp-nvim-lsp :event :LspAttach :dependencies :hrsh7th/nvim-cmp}
   {1 :hrsh7th/cmp-nvim-lua :ft :lua :dependencies :hrsh7th/nvim-cmp}
   {1 :hrsh7th/cmp-path :event :BufRead :dependencies :hrsh7th/nvim-cmp}
-  {1 :hrsh7th/nvim-cmp :config config!}
+  {1 :hrsh7th/nvim-cmp : config}
   { 1 :saadparwaiz1/cmp_luasnip
     :event :BufRead
     :dependencies

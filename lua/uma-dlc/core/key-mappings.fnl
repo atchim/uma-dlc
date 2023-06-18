@@ -1,4 +1,4 @@
-(fn setup! []
+(fn setup []
   (let [map vim.keymap.set]
     ; Paste/Yank
     (map [:n :v] :<Leader>y "\"+y" {:desc "CTRL-C-like yank to clipboard"})
@@ -29,4 +29,4 @@
     (map :n :<Leader>tl "<Cmd>setl list!<CR>" {:desc "Local 'list'"})
     (map :n :<Leader>ts "<Cmd>setl spell!<CR>" {:desc "Local 'spell'"})))
 
-{: setup!}
+{: setup}

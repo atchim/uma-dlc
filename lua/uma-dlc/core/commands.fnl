@@ -72,7 +72,7 @@
           (let [(start _) (arg*:find lead 1 true)]
             (when (not= nil start) arg*)))))))
 
-(fn setup! []
+(fn setup []
   (vim.api.nvim_create_user_command
     :UmaDlc
     (fn [repl]
@@ -96,4 +96,4 @@
     (map :n :gb "<Cmd>UmaDlc buf goto<CR>" {:desc "Buffer goto"})
     (map :n :gB "<Cmd>UmaDlc buf del<CR>" {:desc "Buffer delete"})))
 
-{: setup!}
+{: setup}

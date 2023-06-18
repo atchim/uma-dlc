@@ -1,5 +1,3 @@
-(import-macros {: modcall} :soupmacs.soupmacs)
-
 { 1 :nvim-neo-tree/neo-tree.nvim
   :branch :v2.x
   :cmd :Neotree
@@ -38,10 +36,7 @@
         :zc :close_node
         :zC :close_all_nodes}
       :width 32}}
-  :config
-  (fn [_ opts]
-    (set vim.g.neo_tree_remove_legacy_commands 1)
-    (modcall :neo-tree :setup opts))
+  :init #(set vim.g.neo_tree_remove_legacy_commands 1)
   :dependencies
   [ :kyazdani42/nvim-web-devicons
     :MunifTanjim/nui.nvim

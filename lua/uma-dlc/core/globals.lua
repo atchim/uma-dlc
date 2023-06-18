@@ -1,4 +1,4 @@
-local function setup_21()
+local function setup()
   local g = vim.g
   g.loaded_netrw = 1
   g.loaded_netrwPlugin = 1
@@ -7,4 +7,4 @@ local function setup_21()
   g.omni_sql_no_default_maps = 1
   return nil
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

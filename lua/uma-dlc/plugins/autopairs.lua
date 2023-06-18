@@ -1,4 +1,4 @@
-local function config_21(_, opts)
+local function config(_, opts)
   local npairs = require("nvim-autopairs")
   npairs.setup(opts)
   do
@@ -19,4 +19,4 @@ local function config_21(_, opts)
   end
   return nil
 end
-return {"windwp/nvim-autopairs", event = "InsertCharPre", opts = {check_ts = true, fast_wrap = {map = "<M-e>", chars = {"{", "[", "(", "\"", "'"}, pattern = "[%'%\"%>%]%)%}%,]", end_key = "$", keys = "jkflahdsg", check_comma = true, highlight = "Search", highlight_grey = "Comment"}}, config = config_21, dependencies = "hrsh7th/nvim-cmp"}
+return {"windwp/nvim-autopairs", event = "InsertCharPre", opts = {check_ts = true, fast_wrap = {map = "<M-e>", chars = {"{", "[", "(", "\"", "'"}, pattern = "[%'%\"%>%]%)%}%,]", end_key = "$", keys = "jkflahdsg", check_comma = true, highlight = "Search", highlight_grey = "Comment"}}, config = config, dependencies = "hrsh7th/nvim-cmp"}

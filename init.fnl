@@ -1,2 +1,2 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
-(modcall :uma-dlc :setup! [])
+(modcall :uma-dlc :setup [])

@@ -1,4 +1,4 @@
-(fn setup! []
+(fn setup []
   (let
     [ signs
       { :DiagnosticSignError :
@@ -25,4 +25,4 @@
       "<Cmd>lua vim.diagnostic.open_float()<CR>"
       {:desc "Diagnostic show from line"})))
 
-{: setup!}
+{: setup}

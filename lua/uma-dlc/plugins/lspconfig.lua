@@ -1,5 +1,5 @@
-local function config_21()
-  local function on_attach_21(client, bufnr)
+local function config()
+  local function on_attach(client, bufnr)
     local api = vim.api
     local group = api.nvim_create_augroup(("uma-dlc.lspconfig.on_attach." .. bufnr), {})
     local ns_name = ("vim.lsp." .. client.name .. "." .. bufnr)
@@ -84,14 +84,14 @@ local function config_21()
   local api = vim.api
   local capabilities = (require("cmp_nvim_lsp")).default_capabilities(vim.lsp.protocol.make_client_capabilities())
   local function _10_(server)
-    return ((require("lspconfig"))[server]).setup({capabilities = capabilities, on_attach = on_attach_21})
+    return ((require("lspconfig"))[server]).setup({capabilities = capabilities, on_attach = on_attach})
   end
   local function _11_()
-    return ((require("lspconfig")).fennel_language_server).setup({capabilities = capabilities, on_attach = on_attach_21, settings = {fennel = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_list_runtime_paths()}}}})
+    return ((require("lspconfig")).fennel_language_server).setup({capabilities = capabilities, on_attach = on_attach, settings = {fennel = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_list_runtime_paths()}}}})
   end
   local function _12_()
-    return ((require("lspconfig")).lua_ls).setup({capabilities = capabilities, on_attach = on_attach_21, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_get_runtime_file("", true), checkThirdParty = false}}}})
+    return ((require("lspconfig")).lua_ls).setup({capabilities = capabilities, on_attach = on_attach, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_get_runtime_file("", true), checkThirdParty = false}}}})
   end
   return (require("mason-lspconfig")).setup_handlers({_10_, fennel_language_server = _11_, lua_ls = _12_})
 end
-return {{"j-hui/fidget.nvim", event = "LspAttach", opts = {text = {spinner = "dots"}}}, {"neovim/nvim-lspconfig", event = "BufRead", config = config_21, dependencies = {"williamboman/mason-lspconfig.nvim", config = true, dependencies = {"williamboman/mason.nvim", cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, config = true}}}}
+return {{"j-hui/fidget.nvim", event = "LspAttach", opts = {text = {spinner = "dots"}}}, {"neovim/nvim-lspconfig", event = "BufRead", config = config, dependencies = {"williamboman/mason-lspconfig.nvim", config = true, dependencies = {"williamboman/mason.nvim", cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, config = true}}}}

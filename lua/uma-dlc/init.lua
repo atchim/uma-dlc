@@ -1,4 +1,4 @@
-local function setup_21()
-  return (require("uma-dlc.core"))["setup!"]()
+local function setup()
+  return (require("uma-dlc.core")).setup()
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

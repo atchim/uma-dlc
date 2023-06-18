@@ -1,4 +1,4 @@
-; FIXME: Inconsistent Naming
+; FIXME
 
 (local (bind! symbol)
   (let

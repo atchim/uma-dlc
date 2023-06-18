@@ -135,7 +135,7 @@ local function comp(lead, line, pos)
     return vim.fn.sort(_18_())
   end
 end
-local function setup_21()
+local function setup()
   local function _22_(repl)
     local cmd
     do
@@ -163,4 +163,4 @@ local function setup_21()
   map("n", "gb", "<Cmd>UmaDlc buf goto<CR>", {desc = "Buffer goto"})
   return map("n", "gB", "<Cmd>UmaDlc buf del<CR>", {desc = "Buffer delete"})
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

@@ -1,4 +1,4 @@
-local function fetch_colors()
+local function fetch_colors_21()
   local _let_1_ = require("heirline.utils")
   local hl = _let_1_["get_highlight"]
   local comment_2a = hl("Comment")
@@ -21,8 +21,8 @@ local function fetch_colors()
   local winbarnc = hl("WinBarNC")
   return {n = normal.fg, no = comment_2a.fg, nov = comment_2a.fg, noV = comment_2a.fg, ["no\22"] = comment_2a.fg, niI = normal.fg, niR = normal.fg, niV = normal.fg, nt = normal.fg, ntT = normal.fg, v = search.fg, vs = search.fg, V = search.fg, Vs = search.fg, ["\22"] = search.fg, ["\22s"] = search.fg, s = hint.fg, S = hint.fg, ["\19"] = hint.fg, i = string.fg, ic = string.fg, ix = string.fg, R = special.fg, Rc = special.fg, Rx = special.fg, Rv = special.fg, Rvc = special.fg, Rvx = special.fg, c = statement.fg, cv = error.fg, r = identifier.fg, rm = identifier.fg, ["r?"] = identifier.fg, ["!"] = error.fg, t = type.fg, buflocked = error.fg, bufmod = hint.fg, diagnerr = error.fg, diagnwarn = warn.fg, diagninfo = info.fg, diagnhint = hint.fg, filecn = constant.fg, fileenc = special.fg, filefmt = string.fg, fileln = warn.fg, githead = type.fg, scroll = error.fg, statuslinebg = statusline.bg, statuslinefg = statusline.fg, tablinebg = tabline.bg, tablinefg = tabline.fg, tablineselbg = tablinesel.bg, tablineselfg = tablinesel.fg, termcmd = type.fg, termcwd = special.fg, termpid = identifier.fg, winbarbg = winbar_2a.bg, winbarfg = winbar_2a.fg, winbarncbg = winbarnc.bg, winbarncfg = winbarnc.fg}
 end
-local function config_21()
-  local function setup_lines()
+local function config()
+  local function setup_statuslines()
     local api = vim.api
     local devicons = require("nvim-web-devicons")
     local heirline_conditions = require("heirline.conditions")
@@ -803,15 +803,15 @@ local function config_21()
     vim.opt.showtabline = 2
     return nil
   end
-  local colors = fetch_colors()
+  local colors = fetch_colors_21()
   local api = vim.api
   local group = api.nvim_create_augroup("uma-dlc.plugins.heirline.def-hl", {clear = true})
   do end (require("heirline")).load_colors(colors)
-  setup_lines()
+  setup_statuslines()
   local function _156_()
-    local colors0 = fetch_colors()
+    local colors0 = fetch_colors_21()
     return (require("heirline.utils")).on_colorscheme(colors0)
   end
   return api.nvim_create_autocmd("ColorScheme", {desc = "Defines highlight colors for Heirline.", group = group, callback = _156_})
 end
-return {"rebelot/heirline.nvim", event = "UIEnter", config = config_21, dependencies = {"atchim/sopa.nvim", "kyazdani42/nvim-web-devicons", "uga-rosa/ccc.nvim"}}
+return {"rebelot/heirline.nvim", event = "UIEnter", config = config, dependencies = {"atchim/sopa.nvim", "kyazdani42/nvim-web-devicons", "uga-rosa/ccc.nvim"}}

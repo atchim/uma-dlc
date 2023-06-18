@@ -1,4 +1,4 @@
-(fn setup! []
+(fn setup []
   (local o vim.opt)
 
   ; Case
@@ -63,4 +63,4 @@
   (set o.textwidth 79)
   (set o.undofile true))
 
-{: setup!}
+{: setup}

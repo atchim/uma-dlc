@@ -1,4 +1,4 @@
-local function config_21()
+local function config()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
   local icons = {Class = "\239\160\150", Color = "\239\163\151", Constant = "\239\163\190", Constructor = "\239\144\165", Enum = "\239\133\157", EnumMember = "\239\133\157", Event = "\239\131\167", Field = "\239\176\160", File = "\239\156\152", Folder = "\239\157\138", Function = "\239\158\148", Interface = "\239\131\168", Keyword = "\239\160\138", Method = "\239\154\166", Module = "\239\146\135", Operator = "\239\154\148", Property = "\239\130\173", Reference = "\239\146\129", Snippet = "\239\131\132", Struct = "\239\173\132", Text = "\239\157\190", TypeParameter = "\239\158\131", Unit = "\238\136\159", Value = "\239\162\159", Variable = "\239\148\170"}
@@ -40,4 +40,4 @@ end
 local function _7_()
   return (require("luasnip.loaders.from_vscode")).lazy_load()
 end
-return {{"hrsh7th/cmp-buffer", event = "BufRead", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-nvim-lsp", event = "LspAttach", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-nvim-lua", ft = "lua", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-path", event = "BufRead", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/nvim-cmp", config = config_21}, {"saadparwaiz1/cmp_luasnip", event = "BufRead", dependencies = {"L3MON4D3/LuaSnip", config = _7_, dependencies = "rafamadriz/friendly-snippets"}}}
+return {{"hrsh7th/cmp-buffer", event = "BufRead", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-nvim-lsp", event = "LspAttach", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-nvim-lua", ft = "lua", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/cmp-path", event = "BufRead", dependencies = "hrsh7th/nvim-cmp"}, {"hrsh7th/nvim-cmp", config = config}, {"saadparwaiz1/cmp_luasnip", event = "BufRead", dependencies = {"L3MON4D3/LuaSnip", config = _7_, dependencies = "rafamadriz/friendly-snippets"}}}

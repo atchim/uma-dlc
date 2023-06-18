@@ -1,4 +1,4 @@
-(fn on-attach! [bufnr]
+(fn on_attach [bufnr]
   (local gs (require :gitsigns))
 
   (fn map! [mode lhs rhs ?opts]
@@ -47,6 +47,5 @@
 
 { 1 :lewis6991/gitsigns.nvim
   :event :BufRead
-  :opts {:on_attach on-attach!}
-  :config true
+  :opts {: on_attach}
   :dependencies :atchim/sopa.nvim}

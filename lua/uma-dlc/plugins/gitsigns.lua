@@ -1,4 +1,4 @@
-local function on_attach_21(bufnr)
+local function on_attach(bufnr)
   local gs = require("gitsigns")
   local function map_21(mode, lhs, rhs, _3fopts)
     local opts = (_3fopts or {})
@@ -56,4 +56,4 @@ local function on_attach_21(bufnr)
   map_21("n", "<Leader>td", gs.toggle_deleted, {desc = "Hunk deleted"})
   return map_21({"o", "x"}, "ih", "<Cmd><C-U>Gitsigns select_hunk<CR>", {desc = "Hunk"})
 end
-return {"lewis6991/gitsigns.nvim", event = "BufRead", opts = {on_attach = on_attach_21}, config = true, dependencies = "atchim/sopa.nvim"}
+return {"lewis6991/gitsigns.nvim", event = "BufRead", opts = {on_attach = on_attach}, dependencies = "atchim/sopa.nvim"}

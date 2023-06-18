@@ -5,8 +5,7 @@
   {: bind! : bufln : statusln3 : winbar} :lua.uma-dlc.plugins.heirline.macros
   {: modcall : nonnil} :soupmacs.soupmacs)
 
-(fn fetch-colors []
-  "Fetches and returns the colors to be loaded by Heirline."
+(fn fetch-colors! []
   (let
     [ {:get_highlight hl} (require :heirline.utils)
       comment* (hl :Comment)
@@ -91,11 +90,8 @@
       :winbarncbg winbarnc.bg
       :winbarncfg winbarnc.fg}))
 
-(fn config! []
-  "Post-load configuration hook."
-
-  (fn setup-lines []
-    "Sets up the status lines."
+(fn config []
+  (fn setup-statuslines []
     (let
       [ api vim.api
         devicons (require :nvim-web-devicons)
@@ -176,22 +172,22 @@
       (set vim.opt.showtabline 2)))
 
   (let
-    [ colors (fetch-colors)
+    [ colors (fetch-colors!)
       api vim.api
       group
       (api.nvim_create_augroup :uma-dlc.plugins.heirline.def-hl {:clear true})]
     (modcall :heirline :load_colors colors)
-    (setup-lines)
+    (setup-statuslines)
     (api.nvim_create_autocmd
       :ColorScheme
       { :desc "Defines highlight colors for Heirline."
         : group
         :callback
-        #(let [colors (fetch-colors)]
+        #(let [colors (fetch-colors!)]
           (modcall :heirline.utils :on_colorscheme colors))})))
 
 { 1 :rebelot/heirline.nvim
   :event :UIEnter
-  :config config!
+  : config
   :dependencies
   [:atchim/sopa.nvim :kyazdani42/nvim-web-devicons :uga-rosa/ccc.nvim]}

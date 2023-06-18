@@ -1,4 +1,4 @@
-(fn setup! []
+(fn setup []
   (local g vim.g)
 
   ; Disable Netrw.
@@ -11,4 +11,4 @@
 
   (set g.omni_sql_no_default_maps 1))
 
-{: setup!}
+{: setup}

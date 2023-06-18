@@ -1,1 +1,1 @@
-return {"rcarriga/nvim-notify", event = "UIEnter", opts = {stages = "fade"}}
+return {"rcarriga/nvim-notify", event = "VeryLazy", opts = {stages = "fade"}, dependencies = "atchim/sopa.nvim"}

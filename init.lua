@@ -1,1 +1,1 @@
-return (require("uma-dlc"))["setup!"]()
+return (require("uma-dlc")).setup()

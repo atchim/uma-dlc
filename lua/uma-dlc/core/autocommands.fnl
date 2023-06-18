@@ -1,4 +1,4 @@
-(fn setup! []
+(fn setup []
   ; Yank Highlight
   (let
     [ api vim.api
@@ -9,4 +9,4 @@
         : group
         :callback #(vim.highlight.on_yank {})})))
 
-{: setup!}
+{: setup}

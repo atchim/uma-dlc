@@ -5,7 +5,7 @@
   (vim.keymap.set :n :<Space> :<NOP>)
   (set vim.g.mapleader " "))
 
-(fn setup! []
+(fn setup []
   (set-mapleader!)
   (let
     [ mods
@@ -16,6 +16,6 @@
         :key-mappings
         :diagnostics
         :lazy]]
-    (each [_ mod (ipairs mods)] (modcall (.. :uma-dlc.core. mod) :setup! []))))
+    (each [_ mod (ipairs mods)] (modcall (.. :uma-dlc.core. mod) :setup []))))
 
-{: setup!}
+{: setup}

@@ -1,4 +1,4 @@
-local function setup_21()
+local function setup()
   do
     local vfn = vim.fn
     local lazy_path = (vfn.stdpath("data") .. "/lazy/lazy.nvim")
@@ -10,4 +10,4 @@ local function setup_21()
   end
   return (require("lazy")).setup({import = "uma-dlc.plugins"}, {defaults = {lazy = true}})
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

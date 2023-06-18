@@ -1,4 +1,4 @@
-local function setup_21()
+local function setup()
   do
     local signs = {DiagnosticSignError = "\239\129\151", DiagnosticSignWarn = "\239\129\177", DiagnosticSignHint = "\239\160\180", DiagnosticSignInfo = "\239\159\187"}
     for sign, symbol in pairs(signs) do
@@ -11,4 +11,4 @@ local function setup_21()
   map("n", "]d", "<Cmd>lua vim.diagnostic.goto_next()<CR>", {desc = "Diagnostic go to next"})
   return map("n", "<Leader>k", "<Cmd>lua vim.diagnostic.open_float()<CR>", {desc = "Diagnostic show from line"})
 end
-return {["setup!"] = setup_21}
+return {setup = setup}

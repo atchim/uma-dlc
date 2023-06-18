@@ -1,6 +1,6 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
-(fn setup! []
+(fn setup []
   (let [vfn vim.fn lazy-path (.. (vfn.stdpath :data) :/lazy/lazy.nvim)]
     ; Bootstraps `lazy.nvim` if needed.
     (when (not (vim.loop.fs_stat lazy-path))
@@ -17,4 +17,4 @@
     :setup
     [{:import :uma-dlc.plugins} {:defaults {:lazy true}}]))
 
-{: setup!}
+{: setup}

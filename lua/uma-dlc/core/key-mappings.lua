@@ -1,4 +1,4 @@
-local function setup_21()
+local function setup()
   local map = vim.keymap.set
   map({"n", "v"}, "<Leader>y", "\"+y", {desc = "CTRL-C-like yank to clipboard"})
   map("x", "<Leader>p", "\"_dP", {desc = "Register-safe paste"})
@@ -21,4 +21,4 @@ local function setup_21()
   map("n", "<Leader>tl", "<Cmd>setl list!<CR>", {desc = "Local 'list'"})
   return map("n", "<Leader>ts", "<Cmd>setl spell!<CR>", {desc = "Local 'spell'"})
 end
-return {["setup!"] = setup_21}
+return {setup = setup}
