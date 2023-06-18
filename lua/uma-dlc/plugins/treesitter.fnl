@@ -28,7 +28,8 @@
         :ic "@class.inner"
         :af "@function.outer"
         :if "@function.inner"
-        :n "@node"}}
+        :n "@named-node"
+        :N "@node"}}
     :swap
     { :enable true
       :swap_next {:<C-N> "@swappable"}
