@@ -78,18 +78,18 @@
       :snippet {:expand (fn [args] (modcall :luasnip :lsp_expand args.body))}
       :sources
       (cmp.config.sources
-        [{:name :nvim_lua} {:name :nvim_lsp} {:name :luasnip}]
-        [{:name :path} {:name :buffer}])
+        [{:name :nvim_lsp} {:name :luasnip} {:name :buffer} {:name :path}])
       :view {:entries {:name :custom :selection_order :near_cursor}}}))
 
-[ {1 :hrsh7th/cmp-buffer :event :BufRead :dependencies :hrsh7th/nvim-cmp}
-  {1 :hrsh7th/cmp-nvim-lsp :event :LspAttach :dependencies :hrsh7th/nvim-cmp}
-  {1 :hrsh7th/cmp-nvim-lua :ft :lua :dependencies :hrsh7th/nvim-cmp}
-  {1 :hrsh7th/cmp-path :event :BufRead :dependencies :hrsh7th/nvim-cmp}
-  {1 :hrsh7th/nvim-cmp : config}
-  { 1 :saadparwaiz1/cmp_luasnip
-    :event :BufRead
-    :dependencies
-    { 1 :L3MON4D3/LuaSnip
-      :config #(modcall :luasnip.loaders.from_vscode :lazy_load [])
-      :dependencies :rafamadriz/friendly-snippets}}]
+{ 1 :hrsh7th/nvim-cmp
+  :event :InsertEnter
+  : config
+  :dependencies
+  [ :hrsh7th/cmp-buffer
+    :hrsh7th/cmp-nvim-lsp
+    :hrsh7th/cmp-path
+    { 1 :saadparwaiz1/cmp_luasnip
+      :dependencies
+      { 1 :L3MON4D3/LuaSnip
+        :config #(modcall :luasnip.loaders.from_vscode :lazy_load [])
+        :dependencies :rafamadriz/friendly-snippets}}]}

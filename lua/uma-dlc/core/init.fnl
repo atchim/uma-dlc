@@ -15,6 +15,7 @@
         :commands
         :key-mappings
         :diagnostics
+        :lsp
         :lazy]]
     (each [_ mod (ipairs mods)] (modcall (.. :uma-dlc.core. mod) :setup []))))
 

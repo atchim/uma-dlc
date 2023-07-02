@@ -46,6 +46,6 @@
       [:ih "<Cmd><C-U>Gitsigns select_hunk<CR>" "Hunk" {:mode [:o :x]}]]))
 
 { 1 :lewis6991/gitsigns.nvim
-  :event :BufRead
+  :event [:BufNewFile :BufReadPre]
   :opts {: on_attach}
   :dependencies :atchim/sopa.nvim}

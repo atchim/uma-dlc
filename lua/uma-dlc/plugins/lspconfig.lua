@@ -67,31 +67,22 @@ local function config()
       return diagn.config(ns_config, ns)
     end
     mapn("<Leader>tv", _7_, "Virtual text")
-    map("v", "<Leader>lf", "<Cmd>lua vim.lsp.buf.format()<CR>", {buffer = bufnr, desc = "Format"})
-    mapn("<C-H>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", "LSP signature help")
-    mapn("<C-]>", "<Cmd>lua vim.lsp.buf.definition()<CR>", "LSP go to symbol definition")
-    mapn("<Leader>lf", "<Cmd>lua vim.lsp.buf.format()<CR>", "Format")
-    mapn("<Leader>ls", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", "Document symbols")
-    mapn("<Leader>lS", "<Cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "Workspace symbols")
-    mapn("cr", "<Cmd>lua vim.lsp.buf.rename()<CR>", "LSP symbol rename")
-    mapn("gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", "LSP symbol declaration")
-    mapn("gD", "<Cmd>lua vim.lsp.buf.type_definition()<CR>", "LSP type definition")
-    mapn("gm", "<Cmd>lua vim.lsp.buf.implementation()<CR>", "LSP implementations")
-    mapn("go", "<Cmd>lua vim.lsp.buf.code_action()<CR>", "LSP code action")
-    mapn("gr", "<Cmd>lua vim.lsp.buf.references()<CR>", "LSP references")
-    return mapn("K", "<Cmd>lua vim.lsp.buf.hover()<CR>", "LSP hover information")
+    local function _10_()
+      return vim.lsp.buf.format()
+    end
+    return map("v", "<Leader>lf", _10_, {buffer = bufnr, desc = "Format"})
   end
   local api = vim.api
   local capabilities = (require("cmp_nvim_lsp")).default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  local function _10_(server)
+  local function _11_(server)
     return ((require("lspconfig"))[server]).setup({capabilities = capabilities, on_attach = on_attach})
   end
-  local function _11_()
+  local function _12_()
     return ((require("lspconfig")).fennel_language_server).setup({capabilities = capabilities, on_attach = on_attach, settings = {fennel = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_list_runtime_paths()}}}})
   end
-  local function _12_()
+  local function _13_()
     return ((require("lspconfig")).lua_ls).setup({capabilities = capabilities, on_attach = on_attach, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = api.nvim_get_runtime_file("", true), checkThirdParty = false}}}})
   end
-  return (require("mason-lspconfig")).setup_handlers({_10_, fennel_language_server = _11_, lua_ls = _12_})
+  return (require("mason-lspconfig")).setup_handlers({_11_, fennel_language_server = _12_, lua_ls = _13_})
 end
-return {{"j-hui/fidget.nvim", event = "LspAttach", opts = {text = {spinner = "dots"}}}, {"neovim/nvim-lspconfig", event = "BufRead", config = config, dependencies = {"williamboman/mason-lspconfig.nvim", config = true, dependencies = {"williamboman/mason.nvim", cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, config = true}}}}
+return {{"j-hui/fidget.nvim", event = "LspAttach", opts = {text = {spinner = "dots"}}}, {"neovim/nvim-lspconfig", event = {"BufNewFile", "BufReadPre"}, config = config, dependencies = {"williamboman/mason-lspconfig.nvim", config = true, dependencies = {"williamboman/mason.nvim", build = "<Cmd>MasonUpdate", cmd = {"Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog"}, opts = {}}}}}

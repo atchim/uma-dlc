@@ -28,14 +28,14 @@
   (set dashboard.section.header.val art)
 
   (set dashboard.section.buttons.val
-    [ (dashboard.button :e "  New file" ":ene <BAR> startinsert<CR>")
-      (dashboard.button :f "  Find files" ":Telescope find_files<CR>")
-      (dashboard.button :g "  Live grep" ":Telescope live_grep<CR>")
-      (dashboard.button :o "  Recent files" ":Telescope oldfiles<CR>")
-      (dashboard.button :h "🩺 Check health" ::checkhealth<CR>)
-      (dashboard.button :l "󰒲  Lazy" ::Lazy<CR>)
-      (dashboard.button :m "🧱 Mason" ::Mason<CR>)
-      (dashboard.button :q "  Quit" ":qa<CR>")])
+    [ (dashboard.button :e "  New file" "<Cmd>ene <BAR> startinsert<CR>")
+      (dashboard.button :f "  Find files" "<Cmd>Telescope find_files<CR>")
+      (dashboard.button :g "  Live grep" "<Cmd>Telescope live_grep<CR>")
+      (dashboard.button :o "  Recent files" "<Cmd>Telescope oldfiles<CR>")
+      (dashboard.button :h "🩺 Check health" :<Cmd>checkhealth<CR>)
+      (dashboard.button :l "󰒲  Lazy" :<Cmd>Lazy<CR>)
+      (dashboard.button :m "🧱 Mason" :<Cmd>Mason<CR>)
+      (dashboard.button :q "  Quit" :<Cmd>qa<CR>)])
 
   (each [_ button (ipairs dashboard.section.buttons.val)]
     (set button.opts.hl :String)

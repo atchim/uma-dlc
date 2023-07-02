@@ -56,41 +56,8 @@
       (map
         :v
         :<Leader>lf
-        "<Cmd>lua vim.lsp.buf.format()<CR>"
-        {:buffer bufnr :desc :Format})
-      (mapn
-        :<C-H>
-        "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
-        "LSP signature help")
-      (mapn
-        "<C-]>"
-        "<Cmd>lua vim.lsp.buf.definition()<CR>"
-        "LSP go to symbol definition")
-      (mapn :<Leader>lf "<Cmd>lua vim.lsp.buf.format()<CR>" "Format")
-      (mapn
-        :<Leader>ls
-        "<Cmd>lua vim.lsp.buf.document_symbol()<CR>"
-        "Document symbols")
-      (mapn
-        :<Leader>lS
-        "<Cmd>lua vim.lsp.buf.workspace_symbol()<CR>"
-        "Workspace symbols")
-      (mapn :cr "<Cmd>lua vim.lsp.buf.rename()<CR>" "LSP symbol rename")
-      (mapn
-        :gd
-        "<Cmd>lua vim.lsp.buf.declaration()<CR>"
-        "LSP symbol declaration")
-      (mapn
-        :gD
-        "<Cmd>lua vim.lsp.buf.type_definition()<CR>"
-        "LSP type definition")
-      (mapn
-        :gm
-        "<Cmd>lua vim.lsp.buf.implementation()<CR>"
-        "LSP implementations")
-      (mapn :go "<Cmd>lua vim.lsp.buf.code_action()<CR>" "LSP code action")
-      (mapn :gr "<Cmd>lua vim.lsp.buf.references()<CR>" "LSP references")
-      (mapn :K "<Cmd>lua vim.lsp.buf.hover()<CR>" "LSP hover information")))
+        #(vim.lsp.buf.format)
+        {:buffer bufnr :desc :Format})))
 
   (let
     [ api vim.api
@@ -132,13 +99,14 @@
 
 [ {1 :j-hui/fidget.nvim :event :LspAttach :opts {:text {:spinner :dots}}}
   { 1 :neovim/nvim-lspconfig
-    :event :BufRead
+    :event [:BufNewFile :BufReadPre]
     : config
     :dependencies
     { 1 :williamboman/mason-lspconfig.nvim
       :config true
       :dependencies
       { 1 :williamboman/mason.nvim
+        :build :<Cmd>MasonUpdate
         :cmd
         [:Mason :MasonInstall :MasonUninstall :MasonUninstallAll :MasonLog]
-        :config true}}}]
+        :opts {}}}}]

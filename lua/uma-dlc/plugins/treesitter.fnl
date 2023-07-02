@@ -43,7 +43,7 @@
 
 [ { 1 :JoosepAlviste/nvim-ts-context-commentstring
     :event :BufRead
-    :dependencies :nvim-treesitter}
+    :dependencies :nvim-treesitter/nvim-treesitter}
   { 1 :nvim-treesitter/nvim-treesitter
     :cmd
     [ :TSInstall
@@ -60,11 +60,11 @@
     : config}
   { 1 :nvim-treesitter/nvim-treesitter-textobjects
     :event :BufRead
-    :dependencies :nvim-treesitter}
+    :dependencies :nvim-treesitter/nvim-treesitter}
   { 1 :nvim-treesitter/playground
     :event :BufRead
     :keys
     [ { 1 :<Leader>tp
         2 :<Cmd>TSPlaygroundToggle<CR>
         :desc "Tree-Sitter Playground"}]
-    :dependencies :nvim-treesitter}]
+    :dependencies :nvim-treesitter/nvim-treesitter}]
