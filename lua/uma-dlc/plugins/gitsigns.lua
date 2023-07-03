@@ -56,4 +56,4 @@ local function on_attach(bufnr)
   map_21("n", "<Leader>td", gs.toggle_deleted, {desc = "Hunk deleted"})
   return map_21({"o", "x"}, "ih", "<Cmd><C-U>Gitsigns select_hunk<CR>", {desc = "Hunk"})
 end
-return {"lewis6991/gitsigns.nvim", event = {"BufNewFile", "BufReadPre"}, opts = {on_attach = on_attach}, dependencies = "atchim/sopa.nvim"}
+return {"lewis6991/gitsigns.nvim", event = {"BufNew", "BufNewFile", "BufReadPre"}, opts = {on_attach = on_attach}, dependencies = "atchim/sopa.nvim"}

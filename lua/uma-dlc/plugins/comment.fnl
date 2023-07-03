@@ -1,7 +1,7 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
 { 1 :echasnovski/mini.comment
-  :event :BufRead
+  :event [:BufNew :BufNewFile :BufReadPre]
   :opts
   { :hooks
     { :pre

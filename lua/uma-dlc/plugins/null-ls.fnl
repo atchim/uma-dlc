@@ -1,7 +1,7 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
 { 1 :jose-elias-alvarez/null-ls.nvim
-  :event [:BufReadPre :BufNewFile]
+  :event [:BufNew :BufNewFile :BufReadPre]
   :opts
   (fn [_ old-opts]
     (let

@@ -4,4 +4,4 @@ end
 local function _2_(_, opts)
   return (require("mini.comment")).setup(opts)
 end
-return {"echasnovski/mini.comment", event = "BufRead", opts = {hooks = {pre = _1_}, options = {pad_comment_parts = false}}, config = _2_, dependencies = "JoosepAlviste/nvim-ts-context-commentstring"}
+return {"echasnovski/mini.comment", event = {"BufNew", "BufNewFile", "BufReadPre"}, opts = {hooks = {pre = _1_}, options = {pad_comment_parts = false}}, config = _2_, dependencies = "JoosepAlviste/nvim-ts-context-commentstring"}

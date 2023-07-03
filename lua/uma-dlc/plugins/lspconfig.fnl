@@ -99,7 +99,7 @@
 
 [ {1 :j-hui/fidget.nvim :event :LspAttach :opts {:text {:spinner :dots}}}
   { 1 :neovim/nvim-lspconfig
-    :event [:BufNewFile :BufReadPre]
+    :event [:BufNew :BufNewFile :BufReadPre]
     : config
     :dependencies
     { 1 :williamboman/mason-lspconfig.nvim

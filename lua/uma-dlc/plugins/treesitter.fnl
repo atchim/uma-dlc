@@ -42,7 +42,7 @@
     (set o.foldmethod :expr)))
 
 [ { 1 :JoosepAlviste/nvim-ts-context-commentstring
-    :event :BufRead
+    :event [:BufNew :BufNewFile :BufReadPre]
     :dependencies :nvim-treesitter/nvim-treesitter}
   { 1 :nvim-treesitter/nvim-treesitter
     :cmd
@@ -55,14 +55,14 @@
       :TSModuleInfo
       :TSEditQuery
       :TSEditQueryUserAfter]
-    :event :BufRead
+    :event [:BufNew :BufNewFile :BufReadPre]
     : opts
     : config}
   { 1 :nvim-treesitter/nvim-treesitter-textobjects
-    :event :BufRead
+    :event [:BufNew :BufNewFile :BufReadPre]
     :dependencies :nvim-treesitter/nvim-treesitter}
   { 1 :nvim-treesitter/playground
-    :event :BufRead
+    :event [:BufNew :BufNewFile :BufReadPre]
     :keys
     [ { 1 :<Leader>tp
         2 :<Cmd>TSPlaygroundToggle<CR>

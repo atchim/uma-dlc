@@ -1,1 +1,3 @@
-{1 :kylechui/nvim-surround :event :BufRead :config true}
+{ 1 :kylechui/nvim-surround
+  :event [:BufNew :BufNewFile :BufReadPre]
+  :config true}
