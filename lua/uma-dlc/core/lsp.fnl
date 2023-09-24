@@ -14,7 +14,6 @@
 
   (set-mappings!
     [ [:<C-H> #(vim.lsp.buf.signature_help) "LSP signature help"]
-      ["<C-]>" #(vim.lsp.buf.definition) "LSP go to symbol definition"]
       [:<Leader>lf #(vim.lsp.buf.format) "Format"]
       [:<Leader>ls #(vim.lsp.buf.document_symbol) "Document symbols"]
       [:<Leader>lS #(vim.lsp.buf.workspace_symbol) "Workspace symbols"]
@@ -23,7 +22,6 @@
       [:gD #(vim.lsp.buf.type_definition) "LSP type definition"]
       [:gm #(vim.lsp.buf.implementation) "LSP implementations"]
       [:go #(vim.lsp.buf.code_action) "LSP code action"]
-      [:gr #(vim.lsp.buf.references) "LSP references"]
-      [:K #(vim.lsp.buf.hover) "LSP hover information"]]))
+      [:gr #(vim.lsp.buf.references) "LSP references"]]))
 
 {: setup}

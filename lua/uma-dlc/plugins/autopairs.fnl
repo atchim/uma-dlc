@@ -5,7 +5,7 @@
   (let [cmp (require :cmp) cmp-autop (require :nvim-autopairs.completion.cmp)]
     (cmp.event:on :confirm_done (cmp-autop.on_confirm_done)))
 
-  ; Fixes weird behavior in lisp-like filetypes.
+  ; NOTE: Fixes weird behavior in lisp-like filetypes.
   (let
     [ cond (require :nvim-autopairs.conds)
       rule (require :nvim-autopairs.rule)

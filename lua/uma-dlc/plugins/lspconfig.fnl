@@ -19,6 +19,15 @@
         map vim.keymap.set
         mapn (fn [lhs rhs desc] (map :n lhs rhs {:buffer bufnr : desc}))]
 
+      (when (client.supports_method :textDocument/hover)
+        (mapn :K #(vim.lsp.buf.hover) "LSP hover information"))
+
+      (when (client.supports_method :textDocument/definition)
+        (mapn
+          "<C-]>"
+          #(vim.lsp.buf.definition)
+          "LSP go to symbol definition"))
+
       (when (client.supports_method :textDocument/formatting)
         (api.nvim_create_autocmd
           :BufWritePre
