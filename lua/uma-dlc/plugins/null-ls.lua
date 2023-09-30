@@ -1,6 +1,6 @@
-local function _1_(_, old_opts)
+local function _1_()
   local nls = require("null-ls")
-  local new_opts = {root_dir = (require("null-ls.utils")).root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"), sources = {nls.builtins.code_actions.gitrebase}}
-  return vim.tbl_deep_extend("force", old_opts, new_opts)
+  local builtins = nls.builtins
+  return {sources = {builtins.code_actions.eslint_d, builtins.formatting.prettierd}}
 end
-return {"jose-elias-alvarez/null-ls.nvim", event = {"BufNew", "BufNewFile", "BufReadPre"}, opts = _1_, dependencies = "nvim-lua/plenary.nvim"}
+return {"nvimtools/none-ls.nvim", event = {"BufNew", "BufNewFile", "BufReadPre"}, opts = _1_, dependencies = "nvim-lua/plenary.nvim"}
