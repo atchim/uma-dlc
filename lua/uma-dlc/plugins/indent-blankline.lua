@@ -1,1 +1,1 @@
-return {"lukas-reineke/indent-blankline.nvim", name = "ibl", event = {"BufNew", "BufNewFile", "BufReadPre"}, keys = {{"<Leader>ti", "<Cmd>IBLToggle<CR>", desc = "Indent Blankline"}}, opts = {show_current_context = true, show_current_context_start = true, enabled = false}}
+return {"lukas-reineke/indent-blankline.nvim", name = "ibl", event = {"BufNew", "BufNewFile", "BufReadPre"}, keys = {{"<Leader>ti", "<Cmd>IBLToggle<CR>", desc = "Indent Blankline"}}, opts = {enabled = false}}
