@@ -106,7 +106,7 @@
                 { :library (api.nvim_get_runtime_file "" true)
                   :checkThirdParty false}}}})})))
 
-[ {1 :j-hui/fidget.nvim :event :LspAttach :opts {:text {:spinner :dots}}}
+[ {1 :j-hui/fidget.nvim :opts {}}
   { 1 :neovim/nvim-lspconfig
     :event [:BufNew :BufNewFile :BufReadPre]
     : config

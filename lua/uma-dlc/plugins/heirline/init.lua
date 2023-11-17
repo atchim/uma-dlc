@@ -140,83 +140,83 @@ local function config()
       local _let_24_ = heirline_conditions
       local w_25_3c_3f_38_auto = _let_24_["width_percent_below"]
       local _let_25_ = heirline_utils
-      local clone_41_auto = _let_25_["clone"]
-      local insert_45_auto = _let_25_["insert"]
-      local proto_46_auto
-      local function _26_(self_39_auto)
-        local bufty_47_auto = vim.bo.buftype
-        local ft_51_auto
-        if (bufty_47_auto == term_54_auto) then
-          ft_51_auto = term_54_auto
+      local clone_39_auto = _let_25_["clone"]
+      local insert_40_auto = _let_25_["insert"]
+      local proto_41_auto
+      local function _26_(self_42_auto)
+        local bufty_43_auto = vim.bo.buftype
+        local ft_44_auto
+        if (bufty_43_auto == term_45_auto) then
+          ft_44_auto = term_45_auto
         else
-          ft_51_auto = vim.bo.filetype
+          ft_44_auto = vim.bo.filetype
         end
-        local locked_3f_55_auto
+        local locked_3f_46_auto
         do
-          local bo_56_auto = vim.bo[0]
-          locked_3f_55_auto = (not bo_56_auto.modifiable or bo_56_auto.readonly)
+          local bo_47_auto = vim.bo[0]
+          locked_3f_46_auto = (not bo_47_auto.modifiable or bo_47_auto.readonly)
         end
-        local mod_3f_57_auto = vim.bo.modified
-        local term_54_auto = "terminal"
+        local mod_3f_48_auto = vim.bo.modified
+        local term_45_auto = "terminal"
         local _let_28_ = devicons
-        local icon_color_by_ft_48_auto = _let_28_["get_icon_color_by_filetype"]
-        local icon_49_auto, color_50_auto = icon_color_by_ft_48_auto(ft_51_auto, {default = true})
+        local icon_color_by_ft_49_auto = _let_28_["get_icon_color_by_filetype"]
+        local icon_50_auto, color_51_auto = icon_color_by_ft_49_auto(ft_44_auto, {default = true})
         local active_3f_52_auto = nil
-        local name_42_auto = api.nvim_buf_get_name(0)
-        self_39_auto["locked?"] = locked_3f_55_auto
-        self_39_auto["mod?"] = mod_3f_57_auto
-        self_39_auto.bufty = bufty_47_auto
-        self_39_auto.icon = icon_49_auto
-        self_39_auto["icon-color"] = L_2a_normal(color_50_auto)
-        self_39_auto.name = name_42_auto
+        local name_54_auto = api.nvim_buf_get_name(0)
+        self_42_auto["locked?"] = locked_3f_46_auto
+        self_42_auto["mod?"] = mod_3f_48_auto
+        self_42_auto.bufty = bufty_43_auto
+        self_42_auto.icon = icon_50_auto
+        self_42_auto["icon-color"] = L_2a_normal(color_51_auto)
+        self_42_auto.name = name_54_auto
         return nil
       end
-      proto_46_auto = {init = _26_}
-      local flags_59_auto
+      proto_41_auto = {init = _26_}
+      local flags_56_auto
       local _29_
       do
-        local locked_60_auto
-        local function _30_(self_39_auto)
-          return self_39_auto["locked?"]
+        local locked_57_auto
+        local function _30_(self_42_auto)
+          return self_42_auto["locked?"]
         end
-        locked_60_auto = {condition = _30_, hl = {fg = "buflocked", reverse = true}, provider = " \239\128\163"}
-        local mod_63_auto
-        local function _31_(self_39_auto)
-          return self_39_auto["mod?"]
+        locked_57_auto = {condition = _30_, hl = {fg = "buflocked", reverse = true}, provider = " \239\128\163"}
+        local mod_60_auto
+        local function _31_(self_42_auto)
+          return self_42_auto["mod?"]
         end
-        mod_63_auto = {condition = _31_, hl = {fg = "bufmod", reverse = true}, provider = "\226\158\149"}
-        local function _32_(self_39_auto)
-          return self_39_auto["mod?"]
+        mod_60_auto = {condition = _31_, hl = {fg = "bufmod", reverse = true}, provider = "\226\158\149"}
+        local function _32_(self_42_auto)
+          return self_42_auto["mod?"]
         end
-        local function _33_(self_39_auto)
-          if self_39_auto["locked?"] then
+        local function _33_(self_42_auto)
+          if self_42_auto["locked?"] then
             return {bg = "buflocked", fg = "bufmod"}
           else
             return {bg = "bufmod"}
           end
         end
-        local function _35_(self_39_auto)
-          if self_39_auto["locked?"] then
+        local function _35_(self_42_auto)
+          if self_42_auto["locked?"] then
             return "\226\150\146"
           else
             return " "
           end
         end
-        _29_ = {locked_60_auto, {condition = _32_, hl = _33_, provider = _35_}, mod_63_auto}
+        _29_ = {locked_57_auto, {condition = _32_, hl = _33_, provider = _35_}, mod_60_auto}
       end
-      local function _37_(self_39_auto)
-        return (self_39_auto.bufty ~= "terminal")
+      local function _37_(self_42_auto)
+        return (self_42_auto.bufty ~= "terminal")
       end
-      flags_59_auto = clone_41_auto(_29_, {condition = _37_})
-      local icon_49_auto
-      local function _38_(self_39_auto)
-        return {fg = self_39_auto["icon-color"], reverse = true}
+      flags_56_auto = clone_39_auto(_29_, {condition = _37_})
+      local icon_50_auto
+      local function _38_(self_42_auto)
+        return {fg = self_42_auto["icon-color"], reverse = true}
       end
-      local function _39_(self_39_auto)
-        return self_39_auto.icon
+      local function _39_(self_42_auto)
+        return self_42_auto.icon
       end
-      icon_49_auto = {hl = _38_, provider = _39_}
-      local ty_40_auto
+      icon_50_auto = {hl = _38_, provider = _39_}
+      local ty_63_auto
       local _40_
       do
         local _let_41_ = heirline_utils
@@ -303,33 +303,33 @@ local function config()
         end
         _40_ = insert_12_auto(unpack(_54_()))
       end
-      local function _56_(self_39_auto)
-        return {fg = self_39_auto["icon-color"], reverse = true}
+      local function _56_(self_42_auto)
+        return {fg = self_42_auto["icon-color"], reverse = true}
       end
-      local function _57_(self_39_auto)
-        local name_42_auto = vim.fn.fnamemodify(self_39_auto.name, ":.")
+      local function _57_(self_42_auto)
+        local name_54_auto = vim.fn.fnamemodify(self_42_auto.name, ":.")
         local function _58_()
-          if w_25_3c_3f_38_auto(#name_42_auto, 0.25) then
-            return name_42_auto
+          if w_25_3c_3f_38_auto(#name_54_auto, 0.25) then
+            return name_54_auto
           else
-            return vim.fn.pathshorten(name_42_auto)
+            return vim.fn.pathshorten(name_54_auto)
           end
         end
         return (" " .. _58_() .. " \226\150\146")
       end
-      ty_40_auto = clone_41_auto({_40_, {hl = _56_, provider = _57_}}, {fallthrough = false})
+      ty_63_auto = clone_39_auto({_40_, {hl = _56_, provider = _57_}}, {fallthrough = false})
       local flags_7cicon_3f_66_auto = nil
-      local function _59_(self_39_auto)
-        if ((self_39_auto.bufty ~= "terminal") and self_39_auto["mod?"]) then
-          return {bg = "bufmod", fg = self_39_auto["icon-color"]}
-        elseif ((self_39_auto.bufty ~= "terminal") and self_39_auto["locked?"]) then
-          return {bg = "buflocked", fg = self_39_auto["icon-color"]}
+      local function _59_(self_42_auto)
+        if ((self_42_auto.bufty ~= "terminal") and self_42_auto["mod?"]) then
+          return {bg = "bufmod", fg = self_42_auto["icon-color"]}
+        elseif ((self_42_auto.bufty ~= "terminal") and self_42_auto["locked?"]) then
+          return {bg = "buflocked", fg = self_42_auto["icon-color"]}
         else
-          return {bg = self_39_auto["icon-color"]}
+          return {bg = self_42_auto["icon-color"]}
         end
       end
-      local function _61_(self_39_auto)
-        if ((self_39_auto.bufty ~= "terminal") and (self_39_auto["locked?"] or self_39_auto["mod?"])) then
+      local function _61_(self_42_auto)
+        if ((self_42_auto.bufty ~= "terminal") and (self_42_auto["locked?"] or self_42_auto["mod?"])) then
           return "\226\150\146"
         else
           return " "
@@ -339,7 +339,7 @@ local function config()
       local function _63_()
         local tbl_17_auto = {}
         local i_18_auto = #tbl_17_auto
-        for __7_auto, v_8_auto in next, {proto_46_auto, flags_59_auto, flags_7cicon_3f_66_auto, icon_49_auto, ty_40_auto} do
+        for __7_auto, v_8_auto in next, {proto_41_auto, flags_56_auto, flags_7cicon_3f_66_auto, icon_50_auto, ty_63_auto} do
           local val_19_auto = v_8_auto
           if (nil ~= val_19_auto) then
             i_18_auto = (i_18_auto + 1)
@@ -349,7 +349,7 @@ local function config()
         end
         return tbl_17_auto
       end
-      _23_ = insert_45_auto(unpack(_63_()))
+      _23_ = insert_40_auto(unpack(_63_()))
     end
     local _65_
     do
@@ -424,73 +424,73 @@ local function config()
         local _let_82_ = heirline_conditions
         local w_25_3c_3f_38_auto = _let_82_["width_percent_below"]
         local _let_83_ = heirline_utils
-        local clone_41_auto = _let_83_["clone"]
-        local insert_45_auto = _let_83_["insert"]
-        local proto_46_auto
-        local function _84_(self_39_auto)
-          local bufty_47_auto = vim.bo.buftype
-          local ft_51_auto
-          if (bufty_47_auto == term_54_auto) then
-            ft_51_auto = term_54_auto
+        local clone_39_auto = _let_83_["clone"]
+        local insert_40_auto = _let_83_["insert"]
+        local proto_41_auto
+        local function _84_(self_42_auto)
+          local bufty_43_auto = vim.bo.buftype
+          local ft_44_auto
+          if (bufty_43_auto == term_45_auto) then
+            ft_44_auto = term_45_auto
           else
-            ft_51_auto = vim.bo.filetype
+            ft_44_auto = vim.bo.filetype
           end
-          local locked_3f_55_auto
+          local locked_3f_46_auto
           do
-            local bo_56_auto = vim.bo[0]
-            locked_3f_55_auto = (not bo_56_auto.modifiable or bo_56_auto.readonly)
+            local bo_47_auto = vim.bo[0]
+            locked_3f_46_auto = (not bo_47_auto.modifiable or bo_47_auto.readonly)
           end
-          local mod_3f_57_auto = vim.bo.modified
-          local term_54_auto = "terminal"
+          local mod_3f_48_auto = vim.bo.modified
+          local term_45_auto = "terminal"
           local _let_86_ = devicons
-          local icon_color_by_ft_48_auto = _let_86_["get_icon_color_by_filetype"]
-          local icon_49_auto, color_50_auto = icon_color_by_ft_48_auto(ft_51_auto, {default = true})
+          local icon_color_by_ft_49_auto = _let_86_["get_icon_color_by_filetype"]
+          local icon_50_auto, color_51_auto = icon_color_by_ft_49_auto(ft_44_auto, {default = true})
           local active_3f_52_auto = heirline_conditions.is_active
-          local name_42_auto = api.nvim_buf_get_name(0)
-          self_39_auto["locked?"] = locked_3f_55_auto
-          self_39_auto["mod?"] = mod_3f_57_auto
-          self_39_auto.bufty = bufty_47_auto
-          self_39_auto.icon = icon_49_auto
+          local name_54_auto = api.nvim_buf_get_name(0)
+          self_42_auto["locked?"] = locked_3f_46_auto
+          self_42_auto["mod?"] = mod_3f_48_auto
+          self_42_auto.bufty = bufty_43_auto
+          self_42_auto.icon = icon_50_auto
           if active_3f_52_auto() then
-            self_39_auto["icon-color"] = L_2a_normal(color_50_auto)
+            self_42_auto["icon-color"] = L_2a_normal(color_51_auto)
           else
-            self_39_auto["icon-color"] = L_2a_comment(color_50_auto)
+            self_42_auto["icon-color"] = L_2a_comment(color_51_auto)
           end
-          self_39_auto.name = name_42_auto
+          self_42_auto.name = name_54_auto
           return nil
         end
-        proto_46_auto = {init = _84_}
-        local flags_59_auto
+        proto_41_auto = {init = _84_}
+        local flags_56_auto
         local _88_
         do
-          local locked_60_auto
-          local function _89_(self_39_auto)
-            return self_39_auto["locked?"]
+          local locked_57_auto
+          local function _89_(self_42_auto)
+            return self_42_auto["locked?"]
           end
-          locked_60_auto = {condition = _89_, hl = {fg = "buflocked", reverse = false}, provider = "\239\128\163"}
-          local mod_63_auto
-          local function _90_(self_39_auto)
-            return self_39_auto["mod?"]
+          locked_57_auto = {condition = _89_, hl = {fg = "buflocked", reverse = false}, provider = "\239\128\163"}
+          local mod_60_auto
+          local function _90_(self_42_auto)
+            return self_42_auto["mod?"]
           end
-          mod_63_auto = {condition = _90_, hl = {fg = "bufmod", reverse = false}, provider = "\226\158\149"}
-          local function _91_(self_39_auto)
-            return self_39_auto["mod?"]
+          mod_60_auto = {condition = _90_, hl = {fg = "bufmod", reverse = false}, provider = "\226\158\149"}
+          local function _91_(self_42_auto)
+            return self_42_auto["mod?"]
           end
-          _88_ = {locked_60_auto, {condition = _91_, provider = " "}, mod_63_auto}
+          _88_ = {locked_57_auto, {condition = _91_, provider = " "}, mod_60_auto}
         end
-        local function _92_(self_39_auto)
-          return (self_39_auto.bufty ~= "terminal")
+        local function _92_(self_42_auto)
+          return (self_42_auto.bufty ~= "terminal")
         end
-        flags_59_auto = clone_41_auto(_88_, {condition = _92_})
-        local icon_49_auto
-        local function _93_(self_39_auto)
-          return {fg = self_39_auto["icon-color"], reverse = false}
+        flags_56_auto = clone_39_auto(_88_, {condition = _92_})
+        local icon_50_auto
+        local function _93_(self_42_auto)
+          return {fg = self_42_auto["icon-color"], reverse = false}
         end
-        local function _94_(self_39_auto)
-          return self_39_auto.icon
+        local function _94_(self_42_auto)
+          return self_42_auto.icon
         end
-        icon_49_auto = {hl = _93_, provider = _94_}
-        local ty_40_auto
+        icon_50_auto = {hl = _93_, provider = _94_}
+        local ty_63_auto
         local _95_
         do
           local _let_96_ = heirline_utils
@@ -539,26 +539,26 @@ local function config()
           end
           _95_ = insert_12_auto(unpack(_102_()))
         end
-        local function _104_(self_39_auto)
-          return {fg = self_39_auto["icon-color"], reverse = false}
+        local function _104_(self_42_auto)
+          return {fg = self_42_auto["icon-color"], reverse = false}
         end
-        local function _105_(self_39_auto)
-          local name_42_auto = vim.fn.fnamemodify(self_39_auto.name, ":.")
+        local function _105_(self_42_auto)
+          local name_54_auto = vim.fn.fnamemodify(self_42_auto.name, ":.")
           local function _106_()
-            if w_25_3c_3f_38_auto(#name_42_auto, 0.25) then
-              return name_42_auto
+            if w_25_3c_3f_38_auto(#name_54_auto, 0.25) then
+              return name_54_auto
             else
-              return vim.fn.pathshorten(name_42_auto)
+              return vim.fn.pathshorten(name_54_auto)
             end
           end
           return (" " .. _106_())
         end
-        ty_40_auto = clone_41_auto({_95_, {hl = _104_, provider = _105_}}, {fallthrough = false})
+        ty_63_auto = clone_39_auto({_95_, {hl = _104_, provider = _105_}}, {fallthrough = false})
         local flags_7cicon_3f_66_auto = nil
         local function _108_()
           local tbl_17_auto = {}
           local i_18_auto = #tbl_17_auto
-          for __7_auto, v_8_auto in next, {proto_46_auto, flags_59_auto, flags_7cicon_3f_66_auto, icon_49_auto, ty_40_auto} do
+          for __7_auto, v_8_auto in next, {proto_41_auto, flags_56_auto, flags_7cicon_3f_66_auto, icon_50_auto, ty_63_auto} do
             local val_19_auto = v_8_auto
             if (nil ~= val_19_auto) then
               i_18_auto = (i_18_auto + 1)
@@ -568,7 +568,7 @@ local function config()
           end
           return tbl_17_auto
         end
-        return insert_45_auto(unpack(_108_()))
+        return insert_40_auto(unpack(_108_()))
       end
       local function _110_()
         if active_3f_98_auto() then
@@ -579,7 +579,7 @@ local function config()
       end
       _79_ = clone_99_auto({space, _107_()}, {hl = _110_})
     end
-    local function _120_()
+    local function _119_()
       local proto_92_auto
       local function _112_(self_93_auto)
         if self_93_auto.is_active then
@@ -594,164 +594,163 @@ local function config()
         return nil
       end
       local function _115_(__94_auto, minwid_95_auto, __94_auto0, button_96_auto)
-        local _116_ = button_96_auto
-        if (_116_ == "l") then
+        if (button_96_auto == "l") then
           return api.nvim_win_set_buf(0, minwid_95_auto)
-        elseif (_116_ == "r") then
+        elseif (button_96_auto == "r") then
           return api.nvim_buf_delete(minwid_95_auto, {force = false})
         else
           return nil
         end
       end
+      local function _117_(self_93_auto)
+        return self_93_auto.bufnr
+      end
+      proto_92_auto = {hl = _112_, init = _114_, on_click = {callback = _115_, minwid = _117_, name = "bufln_click_cb"}}
+      local nr_97_auto
       local function _118_(self_93_auto)
         return self_93_auto.bufnr
       end
-      proto_92_auto = {hl = _112_, init = _114_, on_click = {callback = _115_, minwid = _118_, name = "bufln_click_cb"}}
-      local nr_97_auto
-      local function _119_(self_93_auto)
-        return self_93_auto.bufnr
-      end
-      nr_97_auto = {provider = _119_}
-      local _121_
+      nr_97_auto = {provider = _118_}
+      local _120_
       do
         local proto_68_auto
-        local function _122_(self_72_auto)
-          return vim.diagnostic.get(self_72_auto.bufnr)
+        local function _121_(self_69_auto)
+          return vim.diagnostic.get(self_69_auto.bufnr)
         end
-        local function _123_(self_72_auto, severity_73_auto)
-          return (0 < #vim.diagnostic.get(self_72_auto.bufnr, {severity = vim.diagnostic.severity[severity_73_auto]}))
+        local function _122_(self_69_auto, severity_70_auto)
+          return (0 < #vim.diagnostic.get(self_69_auto.bufnr, {severity = vim.diagnostic.severity[severity_70_auto]}))
         end
-        proto_68_auto = {condition = _122_, static = {has = _123_}}
-        local sign_74_auto
-        local function _124_(severity_73_auto)
-          return ((vim.fn.sign_getdefined(("DiagnosticSign" .. severity_73_auto)))[1]).text
+        proto_68_auto = {condition = _121_, static = {has = _122_}}
+        local sign_71_auto
+        local function _123_(severity_70_auto)
+          return ((vim.fn.sign_getdefined(("DiagnosticSign" .. severity_70_auto)))[1]).text
         end
-        sign_74_auto = _124_
-        local mksign_69_auto
-        local function _125_(key_75_auto, signsufx_76_auto, hl_77_auto)
-          local function _126_(self_72_auto)
-            return self_72_auto:has(key_75_auto)
+        sign_71_auto = _123_
+        local mksign_72_auto
+        local function _124_(key_73_auto, signsufx_74_auto, hl_75_auto)
+          local function _125_(self_69_auto)
+            return self_69_auto:has(key_73_auto)
           end
-          local function _127_(self_72_auto)
-            return self_72_auto.sign
+          local function _126_(self_69_auto)
+            return self_69_auto.sign
           end
-          return {condition = _126_, hl = {fg = hl_77_auto}, provider = _127_, static = {sign = sign_74_auto(signsufx_76_auto)}}
+          return {condition = _125_, hl = {fg = hl_75_auto}, provider = _126_, static = {sign = sign_71_auto(signsufx_74_auto)}}
         end
-        mksign_69_auto = _125_
-        local err_78_auto = mksign_69_auto("ERROR", "Error", "diagnerr")
-        local warn_79_auto = mksign_69_auto("WARN", "Warn", "diagnwarn")
-        local info_70_auto = mksign_69_auto("INFO", "Info", "diagninfo")
-        local hint_71_auto = mksign_69_auto("HINT", "Hint", "diagnhint")
-        _121_ = heirline_utils.insert(proto_68_auto, err_78_auto, warn_79_auto, info_70_auto, hint_71_auto)
+        mksign_72_auto = _124_
+        local err_76_auto = mksign_72_auto("ERROR", "Error", "diagnerr")
+        local warn_77_auto = mksign_72_auto("WARN", "Warn", "diagnwarn")
+        local info_78_auto = mksign_72_auto("INFO", "Info", "diagninfo")
+        local hint_79_auto = mksign_72_auto("HINT", "Hint", "diagnhint")
+        _120_ = heirline_utils.insert(proto_68_auto, err_76_auto, warn_77_auto, info_78_auto, hint_79_auto)
       end
-      local _128_
+      local _127_
       do
-        local _let_129_ = heirline_conditions
-        local w_25_3c_3f_38_auto = _let_129_["width_percent_below"]
-        local _let_130_ = heirline_utils
-        local clone_41_auto = _let_130_["clone"]
-        local insert_45_auto = _let_130_["insert"]
-        local proto_46_auto
-        local function _131_(self_39_auto)
-          local bufty_47_auto = (vim.bo[(self_39_auto).bufnr]).buftype
-          local ft_51_auto
-          if (bufty_47_auto == term_54_auto) then
-            ft_51_auto = term_54_auto
+        local _let_128_ = heirline_conditions
+        local w_25_3c_3f_38_auto = _let_128_["width_percent_below"]
+        local _let_129_ = heirline_utils
+        local clone_39_auto = _let_129_["clone"]
+        local insert_40_auto = _let_129_["insert"]
+        local proto_41_auto
+        local function _130_(self_42_auto)
+          local bufty_43_auto = (vim.bo[(self_42_auto).bufnr]).buftype
+          local ft_44_auto
+          if (bufty_43_auto == term_45_auto) then
+            ft_44_auto = term_45_auto
           else
-            ft_51_auto = (vim.bo[(self_39_auto).bufnr]).filetype
+            ft_44_auto = (vim.bo[(self_42_auto).bufnr]).filetype
           end
-          local locked_3f_55_auto
+          local locked_3f_46_auto
           do
-            local bo_56_auto = vim.bo[(self_39_auto).bufnr]
-            locked_3f_55_auto = (not bo_56_auto.modifiable or bo_56_auto.readonly)
+            local bo_47_auto = vim.bo[(self_42_auto).bufnr]
+            locked_3f_46_auto = (not bo_47_auto.modifiable or bo_47_auto.readonly)
           end
-          local mod_3f_57_auto = (vim.bo[(self_39_auto).bufnr]).modified
-          local term_54_auto = "terminal"
-          local _let_133_ = devicons
-          local icon_color_by_ft_48_auto = _let_133_["get_icon_color_by_filetype"]
-          local icon_49_auto, color_50_auto = icon_color_by_ft_48_auto(ft_51_auto, {default = true})
+          local mod_3f_48_auto = (vim.bo[(self_42_auto).bufnr]).modified
+          local term_45_auto = "terminal"
+          local _let_132_ = devicons
+          local icon_color_by_ft_49_auto = _let_132_["get_icon_color_by_filetype"]
+          local icon_50_auto, color_51_auto = icon_color_by_ft_49_auto(ft_44_auto, {default = true})
           local active_3f_52_auto = nil
-          local name_42_auto = api.nvim_buf_get_name((self_39_auto).bufnr)
-          self_39_auto["locked?"] = locked_3f_55_auto
-          self_39_auto["mod?"] = mod_3f_57_auto
-          self_39_auto.bufty = bufty_47_auto
-          self_39_auto.icon = icon_49_auto
-          if self_39_auto.is_active then
-            self_39_auto["icon-color"] = L_2a_normal(color_50_auto)
-          elseif self_39_auto.is_visible then
-            self_39_auto["icon-color"] = L_2a_comment(color_50_auto)
+          local name_54_auto = api.nvim_buf_get_name((self_42_auto).bufnr)
+          self_42_auto["locked?"] = locked_3f_46_auto
+          self_42_auto["mod?"] = mod_3f_48_auto
+          self_42_auto.bufty = bufty_43_auto
+          self_42_auto.icon = icon_50_auto
+          if self_42_auto.is_active then
+            self_42_auto["icon-color"] = L_2a_normal(color_51_auto)
+          elseif self_42_auto.is_visible then
+            self_42_auto["icon-color"] = L_2a_comment(color_51_auto)
           else
-            self_39_auto["icon-color"] = L_2a_linenr(color_50_auto)
+            self_42_auto["icon-color"] = L_2a_linenr(color_51_auto)
           end
-          self_39_auto.name = name_42_auto
+          self_42_auto.name = name_54_auto
           return nil
         end
-        proto_46_auto = {init = _131_}
-        local flags_59_auto
-        local _135_
+        proto_41_auto = {init = _130_}
+        local flags_56_auto
+        local _134_
         do
-          local locked_60_auto
-          local function _136_(self_39_auto)
-            return self_39_auto["locked?"]
+          local locked_57_auto
+          local function _135_(self_42_auto)
+            return self_42_auto["locked?"]
           end
-          locked_60_auto = {condition = _136_, hl = {fg = "buflocked", reverse = false}, provider = "\239\128\163"}
-          local mod_63_auto
-          local function _137_(self_39_auto)
-            return self_39_auto["mod?"]
+          locked_57_auto = {condition = _135_, hl = {fg = "buflocked", reverse = false}, provider = "\239\128\163"}
+          local mod_60_auto
+          local function _136_(self_42_auto)
+            return self_42_auto["mod?"]
           end
-          mod_63_auto = {condition = _137_, hl = {fg = "bufmod", reverse = false}, provider = "\226\158\149"}
-          local function _138_(self_39_auto)
-            return self_39_auto["mod?"]
+          mod_60_auto = {condition = _136_, hl = {fg = "bufmod", reverse = false}, provider = "\226\158\149"}
+          local function _137_(self_42_auto)
+            return self_42_auto["mod?"]
           end
-          _135_ = {locked_60_auto, {condition = _138_, provider = " "}, mod_63_auto}
+          _134_ = {locked_57_auto, {condition = _137_, provider = " "}, mod_60_auto}
         end
-        local function _139_(self_39_auto)
-          return (self_39_auto.bufty ~= "terminal")
+        local function _138_(self_42_auto)
+          return (self_42_auto.bufty ~= "terminal")
         end
-        flags_59_auto = clone_41_auto(_135_, {condition = _139_})
-        local icon_49_auto
-        local function _140_(self_39_auto)
-          return {fg = self_39_auto["icon-color"], reverse = false}
+        flags_56_auto = clone_39_auto(_134_, {condition = _138_})
+        local icon_50_auto
+        local function _139_(self_42_auto)
+          return {fg = self_42_auto["icon-color"], reverse = false}
         end
-        local function _141_(self_39_auto)
-          return self_39_auto.icon
+        local function _140_(self_42_auto)
+          return self_42_auto.icon
         end
-        icon_49_auto = {hl = _140_, provider = _141_}
-        local ty_40_auto
-        local _142_
+        icon_50_auto = {hl = _139_, provider = _140_}
+        local ty_63_auto
+        local _141_
         do
-          local _let_143_ = heirline_utils
-          local insert_12_auto = _let_143_["insert"]
+          local _let_142_ = heirline_utils
+          local insert_12_auto = _let_142_["insert"]
           local proto_13_auto
-          local function _144_(self_14_auto)
+          local function _143_(self_14_auto)
             return (self_14_auto.bufty == "terminal")
           end
-          local function _145_(self_14_auto)
+          local function _144_(self_14_auto)
             local name_15_auto = api.nvim_buf_get_name((self_14_auto).bufnr)
             local __16_auto, __16_auto0, cwd_17_auto, pid_18_auto, cmd_19_auto = name_15_auto:find("term://(.+)//(.+):(.+)")
             self_14_auto.cmd = cmd_19_auto
             return nil
           end
-          proto_13_auto = {condition = _144_, init = _145_}
+          proto_13_auto = {condition = _143_, init = _144_}
           local icon_space_21_auto
+          local function _145_(self_14_auto)
+            return {fg = self_14_auto["icon-color"], reverse = false}
+          end
+          icon_space_21_auto = {hl = _145_, provider = " "}
+          local cmd_19_auto
           local function _146_(self_14_auto)
             return {fg = self_14_auto["icon-color"], reverse = false}
           end
-          icon_space_21_auto = {hl = _146_, provider = " "}
-          local cmd_19_auto
           local function _147_(self_14_auto)
-            return {fg = self_14_auto["icon-color"], reverse = false}
-          end
-          local function _148_(self_14_auto)
             local cmd_19_auto0 = vim.fn.fnamemodify(self_14_auto.cmd, ":t")
             return cmd_19_auto0
           end
-          cmd_19_auto = {hl = _147_, provider = _148_}
+          cmd_19_auto = {hl = _146_, provider = _147_}
           local cwd_3f_25_auto = nil
           local _7cpid_3f_26_auto = nil
           local pid_3f_27_auto = nil
           local _7ccmd_28_auto = space
-          local function _149_()
+          local function _148_()
             local tbl_17_auto = {}
             local i_18_auto = #tbl_17_auto
             for __7_auto, v_8_auto in next, {proto_13_auto, icon_space_21_auto, cwd_3f_25_auto, _7cpid_3f_26_auto, pid_3f_27_auto, _7ccmd_28_auto, cmd_19_auto} do
@@ -764,21 +763,21 @@ local function config()
             end
             return tbl_17_auto
           end
-          _142_ = insert_12_auto(unpack(_149_()))
+          _141_ = insert_12_auto(unpack(_148_()))
         end
-        local function _151_(self_39_auto)
-          return {fg = self_39_auto["icon-color"], reverse = false}
+        local function _150_(self_42_auto)
+          return {fg = self_42_auto["icon-color"], reverse = false}
         end
-        local function _152_(self_39_auto)
-          local name_42_auto = vim.fn.fnamemodify(self_39_auto.name, ":.")
-          return (" " .. vim.fn.fnamemodify(name_42_auto, ":t"))
+        local function _151_(self_42_auto)
+          local name_54_auto = vim.fn.fnamemodify(self_42_auto.name, ":.")
+          return (" " .. vim.fn.fnamemodify(name_54_auto, ":t"))
         end
-        ty_40_auto = clone_41_auto({_142_, {hl = _151_, provider = _152_}}, {fallthrough = false})
+        ty_63_auto = clone_39_auto({_141_, {hl = _150_, provider = _151_}}, {fallthrough = false})
         local flags_7cicon_3f_66_auto = nil
-        local function _153_()
+        local function _152_()
           local tbl_17_auto = {}
           local i_18_auto = #tbl_17_auto
-          for __7_auto, v_8_auto in next, {proto_46_auto, flags_59_auto, flags_7cicon_3f_66_auto, icon_49_auto, ty_40_auto} do
+          for __7_auto, v_8_auto in next, {proto_41_auto, flags_56_auto, flags_7cicon_3f_66_auto, icon_50_auto, ty_63_auto} do
             local val_19_auto = v_8_auto
             if (nil ~= val_19_auto) then
               i_18_auto = (i_18_auto + 1)
@@ -788,18 +787,18 @@ local function config()
           end
           return tbl_17_auto
         end
-        _128_ = insert_45_auto(unpack(_153_()))
+        _127_ = insert_40_auto(unpack(_152_()))
       end
-      return heirline_utils.insert(proto_92_auto, space, nr_97_auto, space, _121_, _128_, space)
+      return heirline_utils.insert(proto_92_auto, space, nr_97_auto, space, _120_, _127_, space)
     end
-    local function _155_(args)
+    local function _154_(args)
       local buf = args.buf
       local tbl_has = vim.tbl_contains
       local buftype = tbl_has({"help", "nofile", "prompt", "quickfix"}, vim.bo[buf].buftype)
       local filetype = tbl_has({"neo-tree"}, vim.bo[buf].buftype)
       return (buftype or filetype)
     end
-    do end (require("heirline")).setup({statusline = heirline_utils.insert({hl = {bg = "statuslinebg", bold = true, fg = "statuslinefg"}}, {hl = _11_, init = _12_, provider = _14_, static = {aliases = {["\19"] = "^S", ["\22"] = "^V", ["\22s"] = "^Vs", ["no\22"] = "no^V"}}, update = "ModeChanged"}, space, _18_, _23_, {provider = "%="}, _65_, {{hl = {fg = "fileenc", reverse = true}, init = _67_, provider = _70_}, {hl = {bg = "fileenc", fg = "filefmt"}, provider = "\226\150\146"}, {hl = {fg = "filefmt", reverse = true}, init = _71_, provider = _72_}, {hl = {bg = "filefmt", fg = "fileln"}, provider = "\226\150\146"}, _77_()}, space, {hl = {fg = "scroll"}, provider = _78_, static = {bar = {"\226\150\136", "\226\150\135", "\226\150\134", "\226\150\133", "\226\150\132", "\226\150\131", "\226\150\130", "\226\150\129"}}}), winbar = _79_, tabline = heirline_utils.make_buflist(_120_()), opts = {disable_winbar_cb = _155_}})
+    do end (require("heirline")).setup({statusline = heirline_utils.insert({hl = {bg = "statuslinebg", bold = true, fg = "statuslinefg"}}, {hl = _11_, init = _12_, provider = _14_, static = {aliases = {["\19"] = "^S", ["\22"] = "^V", ["\22s"] = "^Vs", ["no\22"] = "no^V"}}, update = "ModeChanged"}, space, _18_, _23_, {provider = "%="}, _65_, {{hl = {fg = "fileenc", reverse = true}, init = _67_, provider = _70_}, {hl = {bg = "fileenc", fg = "filefmt"}, provider = "\226\150\146"}, {hl = {fg = "filefmt", reverse = true}, init = _71_, provider = _72_}, {hl = {bg = "filefmt", fg = "fileln"}, provider = "\226\150\146"}, _77_()}, space, {hl = {fg = "scroll"}, provider = _78_, static = {bar = {"\226\150\136", "\226\150\135", "\226\150\134", "\226\150\133", "\226\150\132", "\226\150\131", "\226\150\130", "\226\150\129"}}}), winbar = _79_, tabline = heirline_utils.make_buflist(_119_()), opts = {disable_winbar_cb = _154_}})
     vim.opt.showtabline = 2
     return nil
   end
@@ -808,10 +807,10 @@ local function config()
   local group = api.nvim_create_augroup("uma-dlc.plugins.heirline.def-hl", {clear = true})
   do end (require("heirline")).load_colors(colors)
   setup_statuslines()
-  local function _156_()
+  local function _155_()
     local colors0 = fetch_colors_21()
     return (require("heirline.utils")).on_colorscheme(colors0)
   end
-  return api.nvim_create_autocmd("ColorScheme", {desc = "Defines highlight colors for Heirline.", group = group, callback = _156_})
+  return api.nvim_create_autocmd("ColorScheme", {desc = "Defines highlight colors for Heirline.", group = group, callback = _155_})
 end
 return {"rebelot/heirline.nvim", event = "UIEnter", config = config, dependencies = {"atchim/sopa.nvim", "kyazdani42/nvim-web-devicons", "uga-rosa/ccc.nvim"}}
