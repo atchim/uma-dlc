@@ -1,8 +1,7 @@
 (import-macros {: modcall} :soupmacs.soupmacs)
 
 (local opts
-  { :context_commentstring {:enable true :enable_autocmd false}
-    :highlight {:enable true}
+  { :highlight {:enable true}
     :incremental_selection
     { :enable true
       :keymaps
@@ -43,6 +42,7 @@
 
 [ { 1 :JoosepAlviste/nvim-ts-context-commentstring
     :event [:BufNew :BufNewFile :BufReadPre]
+    :opts (fn [] (set vim.g.skip_ts_context_commentstring_module true) {})
     :dependencies :nvim-treesitter/nvim-treesitter}
   { 1 :nvim-treesitter/nvim-treesitter
     :cmd
